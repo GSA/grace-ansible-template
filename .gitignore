@@ -1,15 +1,24 @@
-## Terraform ##
-*.tfvars
-# Compiled files
-*.tfstate*
-# Module directory
-.terraform/
+## Ansible roles ##
+__pycache__/
+.molecule/
+.pytest_cache/
+*-console.log
 
-## Go ##
-vendor/
-*.zip
-dist/
-release/
+# Mac attributes
 .DS_Store
 */.DS_Store
+
+# IntelliJ’s project specific settings files/directory (Goland)
+.idea
+.idea/
+*.iml
+
+# vi/vim/GVim/MacVim backup files
+*.swp
+
+# VS Code
 /.vscode
+
+# Executables and insallers
+*.exe
+*.msi
