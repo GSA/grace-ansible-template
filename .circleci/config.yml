@@ -7,7 +7,10 @@ jobs:
       - checkout
       - run:
           name: Install ansible-lint
-          command: pip install ansible-lint
+          command: pip install ansible ansible-lint yamllint
+      - run:
+          name: Show ansible version
+          command: ansible --version
       - run:
           name: Syntax check playbook
           command: ansible-playbook --syntax-check tests/test.yml
@@ -25,6 +28,12 @@ jobs:
           name: Execute ansible-lint
           command: >
             find . -type f -name '*.yml' | xargs ansible-lint -c /tmp/ansible_joke-programs_lint-rules/.ansible-lint-rules
+      - run:
+          name: Show yamllint version
+          command: yamllint --version
+      - run:
+          name: Run yamllint
+          command: yamllint -s .
 
 workflows:
   version: 2
