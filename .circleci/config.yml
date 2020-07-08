@@ -18,16 +18,9 @@ jobs:
           name: Show ansible-lint version
           command: ansible-lint --version
       - run:
-          name: Retrieve Ansible lint rules file
-          command: >
-            cd /tmp
-
-            git clone
-            https://github.com/TomonoriMatsumura/ansible_joke-programs_lint-rules
-      - run:
           name: Execute ansible-lint
           command: >
-            find . -type f -name '*.yml' | xargs ansible-lint -c /tmp/ansible_joke-programs_lint-rules/.ansible-lint-rules
+            find . -type f -name '*.yml' | xargs ansible-lint -c .ansible-lint-rules
       - run:
           name: Show yamllint version
           command: yamllint --version
